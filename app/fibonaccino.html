@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Fibonacci Script</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            $(function(){
+                $( '#getfibonacci' ).click( function(){
+                    //define variables
+                    var first_num = 0, second_num = 1, next_num, outputdiv;
+      
+                    //get the value from textbox
+                    var limit = $( '#limit' ).val();
+                    
+                    //set output div object to the variable 'outputdiv'
+                    outputdiv = $( '#output' );
+                    
+                    //check if the input is not empty
+                    if(limit == ''){
+                        outputdiv.html( '<br>Please enter a value' );
+                        return;
+                    }
+                    //check if the limit should be more than 1
+                    if(limit < 2){
+                        outputdiv.html( '<br>Enter value more than 1' );
+                        return;
+                    }else{
+                        //clear the div
+                        outputdiv.html( '' );
+                        //print first two number 0 and 1
+                        outputdiv.append( '<br>' + first_num );
+                        outputdiv.append( '<br>' + second_num );
+ 
+                        //loop through the limit till it becomes 0 (zero)
+                        while( limit > 2 )
+                        {      
+                           //add the first value and second to get the next value
+                           next_num   = first_num + second_num;
+ 
+                           //assign second value to first
+                           //next value to second to find the next series
+                           first_num  = second_num;
+                           second_num = next_num;
+ 
+                           //print the next value
+                           outputdiv.append( '<br>' + next_num);
+ 
+                           //decrement the limit by one
+                           limit--;
+                        }
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h2>jQuery script to print Fibonacci series</h2>
+        <h3>Enter the limit:</h3>
+        <input type="text" id="limit" />
+        <button id="getfibonacci" >Print Fibonacci Series</button>
+        <!-- output div -->
+        <h4>Output: <span id="output"></span></h4>
+    </body>
+</html>

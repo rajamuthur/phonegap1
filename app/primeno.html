@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>HTML 5 Drag and Drop Shopping Cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+	
+	<style>
+		#msg
+{
+color: red;
+}
+	</style>
+	<script>
+
+function pricalc()
+{
+var a=frm.txt.value;
+if(a=="")
+alert("Enter the value");
+else
+{
+var num=parseInt(a);
+var i;
+for(i=2;i<num;i++)
+{
+var n;
+n=num%i;
+if(n==0)
+{
+alert("Not a Prime Number");
+break;
+}
+}
+if(i==num)
+{
+alert("Prime Number");
+} } } function isInteger(s)
+{
+var i;
+s=s.toString(s);
+for(i=0;i<s.length;i++)
+{
+var c=s.charAt(i);
+if(isNaN(c))
+{
+alert("Given value is not a number");
+frm.txt.value="";
+return false;
+}
+}
+return true; } </script><!-- Script by hscripts.com --> 
+	</script>
+</head>
+<body>
+    
+<form name="frm"><input type=text name="txt" size=12 onKeyup="isInteger()" style="border-color:blue;">
+<input type="button" name=cal value="check" onclick="pricalc()">
+</form>
+
+</body>
+</html>
